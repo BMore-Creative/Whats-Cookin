@@ -16,9 +16,36 @@ function getApi(requestUrl) {
 // getApi(requestCatagories);
 // getApi(requestIngredient);
 
+//FOOD RECIPE RESULTS
+const foodBox = document.querySelector("#foodBox");
+
+function getFood(requestURL) {
+    fetch(requestURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            const link = document.createElement('a')
+            const img = document.createElement('img')
+            const foodID = data.meals[0].idMeal
+            const foodResult = 'https://www.themealdb.com/meal/' + foodID
+            const foodImg = data.meals[0].strMealThumb
+            
+            img.src = foodImg;
+
+            link.textContent = data.meals[0].strMeal;
+            link.href = foodResult;
+
+            link.appendChild(img);
+            foodBox.appendChild(link);
+        });
+}
+
+
 //RANDOMZIED DRINK CHOICE LOGIC
 const requestRandDrink = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
-const resultBox = document.querySelector("#drinkBox");
+const drinkBox = document.querySelector("#drinkBox");
 
 
 function getDrink(requestURL) {
@@ -41,8 +68,9 @@ function getDrink(requestURL) {
 
 
             link.appendChild(img);
-            resultBox.appendChild(link);
+            drinkBox.appendChild(link);
         });
 }
 
 getDrink(requestRandDrink);
+getFood(app1);
