@@ -1,13 +1,25 @@
-.question { };
+.logo-image{
+    height: 120px;
+    width: 350px;
+    border-radius: 50%;
+    margin-top: -6px;
+}
 
-#logo { };
+nav{
+  background-color: #FCBF49;   
+}
 
-#questions-container { };
+body{
+    background-color:#003049;
+}
 
-#recipes-container { };
+.container {
+    background-color: #EAE2B7;
+}
 
-#food-recipe { };
+fieldset {
+    background-color: #D62828;
+    display:flex;
+    align-items: flex-end;
+}
 
-#drink-recipe { };
-
-#restart { };
