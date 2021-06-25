@@ -29,13 +29,18 @@ function getDrink(requestURL) {
         .then(function (data) {
             console.log(data);
             const link = document.createElement('a')
+            const img = document.createElement('img')
             const drinkID = data.drinks[0].idDrink
             const drinkResult = 'https://www.thecocktaildb.com/drink/' + drinkID
-            
+            const drinkImg = data.drinks[0].strDrinkThumb
 
-            link.textContent = "blah"
+            img.src = drinkImg
+            
+            link.textContent = data.drinks[0].strDrink
             link.href = drinkResult;
-        
+
+
+            link.appendChild(img);
             resultBox.appendChild(link);
         });
 }
