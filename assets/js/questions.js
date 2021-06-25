@@ -42,6 +42,7 @@ for (var i = 0; i < questions[0].options.length; i++) {
         };
         console.log("You chose " + choice);
         console.log(score);
+        
     };
 };
 
