@@ -41,3 +41,13 @@ function getDrink(requestURL) {
 }
 
 getDrink(requestRandDrink);
+
+
+// Add the object to storage
+localStorage.setItem('answer',answer);
+
+// let quizResult_ =JSON.stringify(answer)
+
+// Retrieve the item from storage
+let quizResult = localStorage.getItem('answer');
+quizResult
