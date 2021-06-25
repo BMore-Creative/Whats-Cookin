@@ -18,6 +18,7 @@ var questions = [
     }
 ];
 
+
 // Populate rows with questions and options. Taking the long road on this for now.
 var score = 0;
 
@@ -114,3 +115,4 @@ for (var i = 0; i < questions[3].options.length; i++) {
         console.log(score);
     };
 };
+
