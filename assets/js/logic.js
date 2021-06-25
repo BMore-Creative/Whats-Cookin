@@ -41,3 +41,11 @@ function getDrink(requestURL) {
 }
 
 getDrink(requestRandDrink);
+
+// Reload the page
+var startOver = document.getElementById("tryAgain");
+
+startOver.addEventListener("click", function() {
+    if(startOver) {
+        location.reload();
+    };});
