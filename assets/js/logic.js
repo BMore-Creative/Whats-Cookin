@@ -62,7 +62,6 @@ function getDrink(requestURL) {
 
 getDrink(requestRandDrink);
 
-<<<<<<< HEAD
 
 // Add the object to storage
 localStorage.setItem('answer',answer);
@@ -72,7 +71,15 @@ localStorage.setItem('answer',answer);
 // Retrieve the item from storage
 let quizResult = localStorage.getItem('answer');
 quizResult
-=======
+
+// Reload the page
+var startOver = document.getElementById("tryAgain");
+
+startOver.addEventListener("click", function() {
+    if(startOver) {
+        location.reload();
+    };});
+
 //USER INPUT -> RECIPE RESULT LOGIC
 userValue = "5"
 const errorBox = document.querySelector("#errorBox");
@@ -139,4 +146,3 @@ if (userValue === "1") {
     //Appends p to html div
     foodBox.appendChild(p);
 };
->>>>>>> 07e8d37da852f8a3dad3ecdbd75b8e48fe1570cc
