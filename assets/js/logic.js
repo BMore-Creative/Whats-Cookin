@@ -72,6 +72,7 @@ var questionOne = document.getElementById("question-1");
 questionOne.textContent = questions[0].title;
 for (var i = 0; i < questions[0].options.length; i++) {
     var option = document.createElement("button");
+    option.classList.add("option1")
     option.style.display = "block";
     document.getElementById("question-1").appendChild(option);
     option.textContent = questions[0].options[i];
@@ -82,7 +83,7 @@ for (var i = 0; i < questions[0].options.length; i++) {
             console.log("You have chosen...DESSERT");
         }
         else if (choice == questions[0].options[0]) {
-            score = score + 100;
+            score = score + 100; 
         }
         else {
             score = score + 200;
@@ -90,17 +91,35 @@ for (var i = 0; i < questions[0].options.length; i++) {
         console.log("You chose " + choice);
         console.log(score);
         
+        var option1Buttons = document.querySelectorAll(".option1")
+        option1Buttons.forEach(function (button) {
+            if (button.textContent !== choice  ) {
+                button.disabled = true;
+            } else {
+                button.onclick = null;
+            };    
+        });
+
+        // if (score < 300) {
+        //     option3Buttons.disabled = true; 
+        // } 
+        // } else {
+        //     option2Buttons.disabled = true;
+        // }
     };
 };
-
+var option2;
+var option2Buttons;
 var questionTwo = document.getElementById("question-2");
 questionTwo.textContent = questions[1].title;
 for (var i = 0; i < questions[1].options.length; i++) {
-    var option = document.createElement("button");
-    option.style.display = "block";
-    option.textContent = questions[1].options[i];
-    document.getElementById("question-2").appendChild(option);
-    option.onclick = function(event) {
+    option2 = document.createElement("button");
+    option2.classList.add("option2")
+    option2.style.display = "block";
+    option2.textContent = questions[1].options[i];
+    document.getElementById("question-2").appendChild(option2);
+    option2.onclick = function(event) {
+
         var choice = event.target.textContent;
         if (choice == questions[1].options[0]) {
             score = score + 10;
@@ -113,17 +132,28 @@ for (var i = 0; i < questions[1].options.length; i++) {
         };
         console.log("You chose " + choice);
         console.log(score);
+
+        option2Buttons = document.querySelectorAll(".option2")
+        option2Buttons.forEach(function (button) {
+            if (button.textContent !== choice  ) {
+                button.disabled = true;
+            } else {
+                button.onclick = null;
+            };           
+        });
     };
 };
 
+var option3;    
 var questionThree = document.getElementById("question-3");
 questionThree.textContent = questions[2].title;
 for (var i = 0; i < questions[2].options.length; i++) {
-    var option = document.createElement("button");
-    option.style.display = "block";
-    option.textContent = questions[2].options[i];
-    document.getElementById("question-3").appendChild(option);
-    option.onclick = function(event) {
+    var option3 = document.createElement("button");
+    option3.classList.add("option3")
+    option3.style.display = "block";
+    option3.textContent = questions[2].options[i];
+    document.getElementById("question-3").appendChild(option3);
+    option3.onclick = function(event) {
         var choice = event.target.textContent;
         if (choice == questions[2].options[0]) {
             score = score + 40;
@@ -136,17 +166,27 @@ for (var i = 0; i < questions[2].options.length; i++) {
         };
         console.log("You chose " + choice);
         console.log(score);
+
+        option3Buttons = document.querySelectorAll(".option3")
+        option3Buttons.forEach(function (button) {
+            if (button.textContent !== choice  ) {
+                button.disabled = true;
+            } else {
+                button.onclick = null;
+            };           
+        });
     };
 };
 
 var questionFour = document.getElementById("question-4");
 questionFour.textContent = questions[3].title;
 for (var i = 0; i < questions[3].options.length; i++) {
-    var option = document.createElement("button");
-    option.style.display = "block";
-    option.textContent = questions[3].options[i];
-    document.getElementById("question-4").appendChild(option);
-    option.onclick = function(event) {
+    var option4 = document.createElement("button");
+    option4.classList.add("option4")
+    option4.style.display = "block";
+    option4.textContent = questions[3].options[i];
+    document.getElementById("question-4").appendChild(option4);
+    option4.onclick = function(event) {
         var choice = event.target.textContent;
         if (choice == questions[3].options[0]) {
             score++;
@@ -159,6 +199,15 @@ for (var i = 0; i < questions[3].options.length; i++) {
         };
         console.log("You chose " + choice);
         console.log("Final score is " + score);
+
+        option4Buttons = document.querySelectorAll(".option4")
+        option4Buttons.forEach(function (button) {
+            if (button.textContent !== choice  ) {
+                button.disabled = true;
+            } else {
+                button.onclick = null;
+            };           
+        });
     };
 };
 
