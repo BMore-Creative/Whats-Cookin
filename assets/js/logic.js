@@ -40,10 +40,6 @@ function getDrink(requestURL) {
         })
         .then(function (data) {
             // Save the data
-    var foodDrinkRecipe = data.drinks[0];
-// Store object in storage and JSON.stringify to convert it as a string
-localStorage.setItem("foodDrinkRecipe", JSON.stringify(foodDrinkRecipe));
-console.log(localStorage);
             console.log(data);
             // Creates img and anchor elements
             const link = document.createElement('a')
@@ -51,17 +47,24 @@ console.log(localStorage);
             const drinkID = data.drinks[0].idDrink
             const drinkResult = 'https://www.thecocktaildb.com/drink/' + drinkID
             const drinkImg = data.drinks[0].strDrinkThumb
+            const drinkName = data.drinks[0].strDrink
 
             //Sets img to thumbnail from API fetch
             img.src = drinkImg
             //Sets link href and text            
-            link.textContent = data.drinks[0].strDrink
+            link.textContent = drinkName
             link.href = drinkResult;
             
             //Appends img to link text
             //Appends link text to html div
             link.appendChild(img);
             drinkBox.appendChild(link);
+            const drinkRecipe = [];
+            drinkRecipe[0] = drinkID;
+            drinkRecipe[1] = drinkName;
+            drinkRecipe[2] = drinkImg;
+            localStorage.setItem("drinkRecipe", JSON.stringify(drinkRecipe));
+            console.log(localStorage);
         });
 }
 
@@ -211,6 +214,30 @@ for (var i = 0; i < questions[3].options.length; i++) {
     };
 };
 
+//LOCAL STORAGE
+const lastDrinkRecipe = JSON.parse(localStorage.getItem("drinkRecipe"));
+console.log(lastDrinkRecipe);
+const lastDrink = document.querySelector("#lastDrink")
+function addDrinkHistory() {
+    const link = document.createElement('a')
+    const img = document.createElement('img')
+    const drinkID = lastDrinkRecipe[0]
+    const drinkResult = 'https://www.thecocktaildb.com/drink/' + drinkID
+    const drinkName = lastDrinkRecipe[1]
+    const drinkImg = lastDrinkRecipe[2]
+
+    // Sets img to thumbnail from API fetch
+    img.src = drinkImg
+     // Sets link href and text            
+    link.textContent = drinkName;
+    link.href = drinkResult;
+            
+    //Appends img to link text
+     //Appends link text to html div
+    link.appendChild(img);
+    lastDrink.appendChild(link);
+};
+
 //USER INPUT -> RECIPE RESULT LOGIC
 const errorBox = document.querySelector("#errorBox");
 const submitAnswers = document.querySelector('#submit');
@@ -289,3 +316,5 @@ startOver.addEventListener("click", function() {
     if(startOver) {
         location.reload();
     };});
+
+addDrinkHistory();
