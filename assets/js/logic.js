@@ -121,13 +121,13 @@ for (var i = 0; i < questions[2].options.length; i++) {
     option.onclick = function(event) {
         var choice = event.target.textContent;
         if (choice == questions[2].options[0]) {
-            score = score + 10;
+            score = score + 40;
         }
         else if (choice == questions[2].options[1]) {
-            score = score + 20;
+            score = score + 50;
         }
         else {
-            score = score + 30;
+            score = score + 60;
         };
         console.log("You chose " + choice);
         console.log(score);
@@ -198,23 +198,23 @@ submitAnswers.addEventListener("click", function () {
         getFood(ent8);    
     } else if (score === 233) {
         getFood(ent9);    
-    } else if (score === 311) {
+    } else if (score === 341) {
         getFood(des1);    
-    } else if (score === 312) {
+    } else if (score === 342) {
         getFood(des2);    
-    } else if (score === 313) {
+    } else if (score === 343) {
         getFood(des3);    
-    } else if (score === 321) {
+    } else if (score === 351) {
         getFood(des4);    
-    } else if (score === 322) {
+    } else if (score === 352) {
         getFood(des5);    
-    } else if (score === 323) {
+    } else if (score === 353) {
         getFood(des6);    
-    } else if (score === 331) {
+    } else if (score === 361) {
         getFood(des7);    
-    } else if (score === 332) {
+    } else if (score === 362) {
         getFood(des8);    
-    } else if (score === 333) {
+    } else if (score === 363) {
         getFood(des9);    
     } else {
         //Creates h2 element
