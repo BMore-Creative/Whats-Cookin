@@ -39,6 +39,11 @@ function getDrink(requestURL) {
             return response.json();
         })
         .then(function (data) {
+            // Save the data
+    var foodDrinkRecipe = data.drinks[0];
+// Store object in storage and JSON.stringify to convert it as a string
+localStorage.setItem("foodDrinkRecipe", JSON.stringify(foodDrinkRecipe));
+console.log(localStorage);
             console.log(data);
             // Creates img and anchor elements
             const link = document.createElement('a')
@@ -61,16 +66,6 @@ function getDrink(requestURL) {
 }
 
 getDrink(requestRandDrink);
-
-
-// Add the object to storage
-localStorage.setItem('answer',answer);
-
-// let quizResult_ =JSON.stringify(answer)
-
-// Retrieve the item from storage
-let quizResult = localStorage.getItem('answer');
-quizResult
 
 // Reload the page
 var startOver = document.getElementById("tryAgain");
