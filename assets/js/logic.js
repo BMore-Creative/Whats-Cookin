@@ -14,6 +14,7 @@ function getFood(requestURL) {
             const foodID = data.meals[0].idMeal
             const foodResult = 'https://www.themealdb.com/meal/' + foodID
             const foodImg = data.meals[0].strMealThumb
+            const foodName = data.meals[0].strMeal
             
             //Sets img to thumbnail from API fetch
             img.src = foodImg;
@@ -25,6 +26,13 @@ function getFood(requestURL) {
             //Appends link text to html div
             link.appendChild(img);
             foodBox.appendChild(link);
+
+            const foodRecipe = [];
+            foodRecipe[0] = foodID;
+            foodRecipe[1] = foodName;
+            foodRecipe[2] = foodImg;
+            localStorage.setItem("foodRecipe", JSON.stringify(foodRecipe));
+            console.log(localStorage);
         });
 }
 
@@ -39,7 +47,6 @@ function getDrink(requestURL) {
             return response.json();
         })
         .then(function (data) {
-            // Save the data
             console.log(data);
             // Creates img and anchor elements
             const link = document.createElement('a')
@@ -59,6 +66,7 @@ function getDrink(requestURL) {
             //Appends link text to html div
             link.appendChild(img);
             drinkBox.appendChild(link);
+            //Saves most recent drink API information to localStorage
             const drinkRecipe = [];
             drinkRecipe[0] = drinkID;
             drinkRecipe[1] = drinkName;
@@ -237,6 +245,28 @@ function addDrinkHistory() {
     link.appendChild(img);
     lastDrink.appendChild(link);
 };
+const lastFoodRecipe = JSON.parse(localStorage.getItem("foodRecipe"));
+console.log(lastFoodRecipe);
+const lastFood = document.querySelector('#lastFood')
+function addFoodHistory() {
+    const link = document.createElement('a')
+    const img = document.createElement('img')
+    const foodID = lastFoodRecipe[0]
+    const foodResult = 'https://www.themealdb.com/meal/' + foodID
+    const foodName = lastFoodRecipe[1]
+    const foodImg = lastFoodRecipe[2]
+
+    //Sets img to thumbnail from API fetch
+    img.src = foodImg;
+    //Sets link href and text
+    link.textContent = foodName;
+    link.href = foodResult;
+
+    //Appends img to link text
+    //Appends link text to html div
+    link.appendChild(img);
+    lastFood.appendChild(link);
+}
 
 //USER INPUT -> RECIPE RESULT LOGIC
 const errorBox = document.querySelector("#errorBox");
@@ -318,3 +348,4 @@ startOver.addEventListener("click", function() {
     };});
 
 addDrinkHistory();
+addFoodHistory();
