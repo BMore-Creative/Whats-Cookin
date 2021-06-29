@@ -14,6 +14,7 @@ function getFood(requestURL) {
             const foodID = data.meals[0].idMeal
             const foodResult = 'https://www.themealdb.com/meal/' + foodID
             const foodImg = data.meals[0].strMealThumb
+            const foodName = data.meals[0].strMeal
             
             //Sets img to thumbnail from API fetch
             img.src = foodImg;
@@ -25,6 +26,13 @@ function getFood(requestURL) {
             //Appends link text to html div
             link.appendChild(img);
             foodBox.appendChild(link);
+
+            const foodRecipe = [];
+            foodRecipe[0] = foodID;
+            foodRecipe[1] = foodName;
+            foodRecipe[2] = foodImg;
+            localStorage.setItem("foodRecipe", JSON.stringify(foodRecipe));
+            console.log(localStorage);
         });
 }
 
@@ -39,11 +47,6 @@ function getDrink(requestURL) {
             return response.json();
         })
         .then(function (data) {
-            // Save the data
-    var foodDrinkRecipe = data.drinks[0];
-// Store object in storage and JSON.stringify to convert it as a string
-localStorage.setItem("foodDrinkRecipe", JSON.stringify(foodDrinkRecipe));
-console.log(localStorage);
             console.log(data);
             // Creates img and anchor elements
             const link = document.createElement('a')
@@ -51,17 +54,25 @@ console.log(localStorage);
             const drinkID = data.drinks[0].idDrink
             const drinkResult = 'https://www.thecocktaildb.com/drink/' + drinkID
             const drinkImg = data.drinks[0].strDrinkThumb
+            const drinkName = data.drinks[0].strDrink
 
             //Sets img to thumbnail from API fetch
             img.src = drinkImg
             //Sets link href and text            
-            link.textContent = data.drinks[0].strDrink
+            link.textContent = drinkName
             link.href = drinkResult;
             
             //Appends img to link text
             //Appends link text to html div
             link.appendChild(img);
             drinkBox.appendChild(link);
+            //Saves most recent drink API information to localStorage
+            const drinkRecipe = [];
+            drinkRecipe[0] = drinkID;
+            drinkRecipe[1] = drinkName;
+            drinkRecipe[2] = drinkImg;
+            localStorage.setItem("drinkRecipe", JSON.stringify(drinkRecipe));
+            console.log(localStorage);
         });
 }
 
@@ -72,6 +83,7 @@ var questionOne = document.getElementById("question-1");
 questionOne.textContent = questions[0].title;
 for (var i = 0; i < questions[0].options.length; i++) {
     var option = document.createElement("button");
+    option.classList.add("option1")
     option.style.display = "block";
     document.getElementById("question-1").appendChild(option);
     option.textContent = questions[0].options[i];
@@ -82,7 +94,7 @@ for (var i = 0; i < questions[0].options.length; i++) {
             console.log("You have chosen...DESSERT");
         }
         else if (choice == questions[0].options[0]) {
-            score = score + 100;
+            score = score + 100; 
         }
         else {
             score = score + 200;
@@ -90,17 +102,35 @@ for (var i = 0; i < questions[0].options.length; i++) {
         console.log("You chose " + choice);
         console.log(score);
         
+        var option1Buttons = document.querySelectorAll(".option1")
+        option1Buttons.forEach(function (button) {
+            if (button.textContent !== choice  ) {
+                button.disabled = true;
+            } else {
+                button.onclick = null;
+            };    
+        });
+
+        // if (score < 300) {
+        //     option3Buttons.disabled = true; 
+        // } 
+        // } else {
+        //     option2Buttons.disabled = true;
+        // }
     };
 };
-
+var option2;
+var option2Buttons;
 var questionTwo = document.getElementById("question-2");
 questionTwo.textContent = questions[1].title;
 for (var i = 0; i < questions[1].options.length; i++) {
-    var option = document.createElement("button");
-    option.style.display = "block";
-    option.textContent = questions[1].options[i];
-    document.getElementById("question-2").appendChild(option);
-    option.onclick = function(event) {
+    option2 = document.createElement("button");
+    option2.classList.add("option2")
+    option2.style.display = "block";
+    option2.textContent = questions[1].options[i];
+    document.getElementById("question-2").appendChild(option2);
+    option2.onclick = function(event) {
+
         var choice = event.target.textContent;
         if (choice == questions[1].options[0]) {
             score = score + 10;
@@ -113,17 +143,28 @@ for (var i = 0; i < questions[1].options.length; i++) {
         };
         console.log("You chose " + choice);
         console.log(score);
+
+        option2Buttons = document.querySelectorAll(".option2")
+        option2Buttons.forEach(function (button) {
+            if (button.textContent !== choice  ) {
+                button.disabled = true;
+            } else {
+                button.onclick = null;
+            };           
+        });
     };
 };
 
+var option3;    
 var questionThree = document.getElementById("question-3");
 questionThree.textContent = questions[2].title;
 for (var i = 0; i < questions[2].options.length; i++) {
-    var option = document.createElement("button");
-    option.style.display = "block";
-    option.textContent = questions[2].options[i];
-    document.getElementById("question-3").appendChild(option);
-    option.onclick = function(event) {
+    var option3 = document.createElement("button");
+    option3.classList.add("option3")
+    option3.style.display = "block";
+    option3.textContent = questions[2].options[i];
+    document.getElementById("question-3").appendChild(option3);
+    option3.onclick = function(event) {
         var choice = event.target.textContent;
         if (choice == questions[2].options[0]) {
             score = score + 40;
@@ -136,17 +177,27 @@ for (var i = 0; i < questions[2].options.length; i++) {
         };
         console.log("You chose " + choice);
         console.log(score);
+
+        option3Buttons = document.querySelectorAll(".option3")
+        option3Buttons.forEach(function (button) {
+            if (button.textContent !== choice  ) {
+                button.disabled = true;
+            } else {
+                button.onclick = null;
+            };           
+        });
     };
 };
 
 var questionFour = document.getElementById("question-4");
 questionFour.textContent = questions[3].title;
 for (var i = 0; i < questions[3].options.length; i++) {
-    var option = document.createElement("button");
-    option.style.display = "block";
-    option.textContent = questions[3].options[i];
-    document.getElementById("question-4").appendChild(option);
-    option.onclick = function(event) {
+    var option4 = document.createElement("button");
+    option4.classList.add("option4")
+    option4.style.display = "block";
+    option4.textContent = questions[3].options[i];
+    document.getElementById("question-4").appendChild(option4);
+    option4.onclick = function(event) {
         var choice = event.target.textContent;
         if (choice == questions[3].options[0]) {
             score++;
@@ -159,8 +210,63 @@ for (var i = 0; i < questions[3].options.length; i++) {
         };
         console.log("You chose " + choice);
         console.log("Final score is " + score);
+
+        option4Buttons = document.querySelectorAll(".option4")
+        option4Buttons.forEach(function (button) {
+            if (button.textContent !== choice  ) {
+                button.disabled = true;
+            } else {
+                button.onclick = null;
+            };           
+        });
     };
 };
+
+//LOCAL STORAGE
+const lastDrinkRecipe = JSON.parse(localStorage.getItem("drinkRecipe"));
+console.log(lastDrinkRecipe);
+const lastDrink = document.querySelector("#lastDrink")
+function addDrinkHistory() {
+    const link = document.createElement('a')
+    const img = document.createElement('img')
+    const drinkID = lastDrinkRecipe[0]
+    const drinkResult = 'https://www.thecocktaildb.com/drink/' + drinkID
+    const drinkName = lastDrinkRecipe[1]
+    const drinkImg = lastDrinkRecipe[2]
+
+    // Sets img to thumbnail from API fetch
+    img.src = drinkImg
+     // Sets link href and text            
+    link.textContent = drinkName;
+    link.href = drinkResult;
+            
+    //Appends img to link text
+     //Appends link text to html div
+    link.appendChild(img);
+    lastDrink.appendChild(link);
+};
+const lastFoodRecipe = JSON.parse(localStorage.getItem("foodRecipe"));
+console.log(lastFoodRecipe);
+const lastFood = document.querySelector('#lastFood')
+function addFoodHistory() {
+    const link = document.createElement('a')
+    const img = document.createElement('img')
+    const foodID = lastFoodRecipe[0]
+    const foodResult = 'https://www.themealdb.com/meal/' + foodID
+    const foodName = lastFoodRecipe[1]
+    const foodImg = lastFoodRecipe[2]
+
+    //Sets img to thumbnail from API fetch
+    img.src = foodImg;
+    //Sets link href and text
+    link.textContent = foodName;
+    link.href = foodResult;
+
+    //Appends img to link text
+    //Appends link text to html div
+    link.appendChild(img);
+    lastFood.appendChild(link);
+}
 
 //USER INPUT -> RECIPE RESULT LOGIC
 const errorBox = document.querySelector("#errorBox");
@@ -240,3 +346,6 @@ startOver.addEventListener("click", function() {
     if(startOver) {
         location.reload();
     };});
+
+addDrinkHistory();
+addFoodHistory();
