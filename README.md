@@ -5,8 +5,6 @@ Live Link: https://bmore-creative.github.io/Whats-Cookin/
 
 ## Table of Contents
 
----
-
 - [About the Project](#about-the-project)
   - [Built With](#built-with) 
 - [Usage](#usage)
@@ -14,8 +12,6 @@ Live Link: https://bmore-creative.github.io/Whats-Cookin/
 - [Questions](#questions)
 
 ## About the Project
-
----
 
 >A dynamic web application that provides the user food and drink recipes based on their responses to questions
 
@@ -29,8 +25,6 @@ Live Link: https://bmore-creative.github.io/Whats-Cookin/
 
 ## Usage
 
----
-
 1. Answer questions based on current food preferences 
 2. Submit answers 
 3. A recipe fulfilling the specifications of your answers will appear, along with a random drink recommendation 
@@ -40,13 +34,9 @@ Live Link: https://bmore-creative.github.io/Whats-Cookin/
 
 ## License
 
----
-
 This project is licensed under the MIT license
 
 ## Questions
-
----
 
 **Project Collaborators:** [BMore-Creative](https://github.com/BMore-Creative), [jyambot](https://github.com/jyambot), [medina2021](https://github.com/medina2021)
 
