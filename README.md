@@ -8,6 +8,7 @@ Live Link: https://bmore-creative.github.io/Whats-Cookin/
 ---
 
 - [About the Project](#about-the-project)
+  - [Built With](#built-with) 
 - [Usage](#usage)
 - [License](#license)
 - [Questions](#questions)
@@ -17,6 +18,14 @@ Live Link: https://bmore-creative.github.io/Whats-Cookin/
 ---
 
 >A dynamic web application that provides the user food and drink recipes based on their responses to questions
+
+### Built With
+- HTML
+- CSS
+  - Bulma CSS
+- Javascript
+- TheMealDB API
+- TheCocktailDB API
 
 ## Usage
 
@@ -39,6 +48,6 @@ This project is licensed under the MIT license
 
 ---
 
-**Project Creator:** [BMore-Creative](https://github.com/BMore-Creative)
+**Project Collaborators:** [BMore-Creative](https://github.com/BMore-Creative), [jyambot](https://github.com/jyambot), [medina2021](https://github.com/medina2021)
 
 *Feel free to contact me at bamore404@gmail.com for any questions, comments, or suggestions.*
