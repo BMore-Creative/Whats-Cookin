@@ -1,5 +1,7 @@
 # What's Cookin?
   ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg) 
+  
+![image](https://user-images.githubusercontent.com/80925456/132955550-68564c86-1d9e-440e-9dbd-2ca8dcf0b2cc.png)
 
 Live Link: https://bmore-creative.github.io/Whats-Cookin/
 
