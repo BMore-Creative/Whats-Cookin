@@ -344,6 +344,7 @@ submitAnswers.onclick = function () {
 
   quesMarkOne.setAttribute("class", "is-hidden");
   quesMarkTwo.setAttribute("class", "is-hidden");
+  submitAnswers.setAttribute("disabled", "");
 };
 
 // Reload the page
