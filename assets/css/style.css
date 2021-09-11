@@ -1,28 +1,19 @@
-.logo-image{
-    height: 120px;
-    width: 350px;
-    border-radius: 50%;
-    margin-top: -6px;
+* {
+    font-family: 'Roboto', sans-serif;
 }
 
-nav{
-  background-color: #FCBF49;   
+.is-brand-gold {
+    background-color: #FCBF49;
 }
 
-body{
+.is-brand-navy {
     background-color:#003049;
 }
 
-.container {
+.is-brand-beige {
     background-color: #EAE2B7;
 }
 
-fieldset {
-    background-color: #D62828;
-    display:flex;
-    align-items: flex-end;
-}
-
-link {
-    font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; 
+.box {
+    background-color: #f8f6ec;
 }
