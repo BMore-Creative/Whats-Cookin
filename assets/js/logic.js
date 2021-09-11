@@ -13,6 +13,7 @@ const lastDrink = document.querySelector("#lastDrink");
 const lastFood = document.querySelector("#lastFood");
 const errorBox = document.querySelector("#errorBox");
 const submitAnswers = document.querySelector("#submit");
+const resetBtn = document.querySelector("#tryAgain");
 
 let score = 0;
 
@@ -244,77 +245,103 @@ function addFoodHistory() {
 }
 
 //USER INPUT -> RECIPE RESULT LOGIC
-submitAnswers.addEventListener("click", function () {
-  if (score === 111) {
-    getFood(app1);
-  } else if (score === 112) {
-    getFood(app2);
-  } else if (score === 113) {
-    getFood(app3);
-  } else if (score === 121) {
-    getFood(app4);
-  } else if (score === 122) {
-    getFood(app5);
-  } else if (score === 123) {
-    getFood(app6);
-  } else if (score === 131) {
-    getFood(app7);
-  } else if (score === 132) {
-    getFood(app8);
-  } else if (score === 133) {
-    getFood(app9);
-  } else if (score === 211) {
-    getFood(ent1);
-  } else if (score === 212) {
-    getFood(ent2);
-  } else if (score === 213) {
-    getFood(ent3);
-  } else if (score === 221) {
-    getFood(ent4);
-  } else if (score === 222) {
-    getFood(ent5);
-  } else if (score === 223) {
-    getFood(ent6);
-  } else if (score === 231) {
-    getFood(ent7);
-  } else if (score === 232) {
-    getFood(ent8);
-  } else if (score === 233) {
-    getFood(ent9);
-  } else if (score === 341) {
-    getFood(des1);
-  } else if (score === 342) {
-    getFood(des2);
-  } else if (score === 343) {
-    getFood(des3);
-  } else if (score === 351) {
-    getFood(des4);
-  } else if (score === 352) {
-    getFood(des5);
-  } else if (score === 353) {
-    getFood(des6);
-  } else if (score === 361) {
-    getFood(des7);
-  } else if (score === 362) {
-    getFood(des8);
-  } else if (score === 363) {
-    getFood(des9);
-  } else {
-    //Creates h2 element
-    const h2 = document.createElement("h2");
-    //Sets h2 text
-    h2.textContent = "Option unavailable, please try again";
-    //Appends h2 to html div
-    foodBox.appendChild(h2);
+submitAnswers.onclick = function () {
+  switch (score) {
+    case 111:
+      getFood(app1);
+      break;
+    case 112:
+      getFood(app2);
+      break;
+    case 113:
+      getFood(app3);
+      break;
+    case 121:
+      getFood(app4);
+      break;
+    case 122:
+      getFood(app5);
+      break;
+    case 123:
+      getFood(app6);
+      break;
+    case 131:
+      getFood(app7);
+      break;
+    case 132:
+      getFood(app8);
+      break;
+    case 133:
+      getFood(app9);
+      break;
+    case 211:
+      getFood(ent1);
+      break;
+    case 212:
+      getFood(ent2);
+      break;
+    case 213:
+      getFood(ent3);
+      break;
+    case 221:
+      getFood(ent4);
+      break;
+    case 222:
+      getFood(ent5);
+      break;
+    case 223:
+      getFood(ent6);
+      break;
+    case 231:
+      getFood(ent7);
+      break;
+    case 232:
+      getFood(ent8);
+      break;
+    case 233:
+      getFood(ent9);
+      break;
+    case 341:
+      getFood(des1);
+      break;
+    case 342:
+      getFood(des2);
+      break;
+    case 343:
+      getFood(des3);
+      break;
+    case 351:
+      getFood(des4);
+      break;
+    case 352:
+      getFood(des5);
+      break;
+    case 353:
+      getFood(des6);
+      break;
+    case 361:
+      getFood(des7);
+      break;
+    case 362:
+      getFood(des8);
+      break;
+    case 363:
+      getFood(des9);
+      break;
+    default:
+      const h2 = document.createElement("h2");
+      //Sets h2 text
+      h2.textContent = "Option unavailable, please try again";
+      //Appends h2 to html div
+      foodBox.appendChild(h2);
+      break;
   }
   getDrink(requestRandDrink);
-});
+};
 
 // Reload the page
-const resetBtn = document.querySelector("#tryAgain");
-
 resetBtn.addEventListener("click", function () {
-    location.reload();
+  location.reload();
 });
 
 addDrinkHistory();
