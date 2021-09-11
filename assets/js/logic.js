@@ -44,7 +44,7 @@ function getDrink(requestURL) {
 
       //Appends img to link text
       //Appends link text to html div
-      link.appendChild(img);
+      drinkBox.appendChild(img);
       drinkBox.appendChild(link);
       //Saves most recent drink API information to localStorage
       const drinkRecipe = [];
@@ -80,7 +80,7 @@ function getFood(requestURL) {
 
       //Appends img to link text
       //Appends link text to html div
-      link.appendChild(img);
+      foodBox.appendChild(img);
       foodBox.appendChild(link);
 
       const foodRecipe = [];
@@ -175,6 +175,8 @@ for (let i = 0; i < questions[2].options.length; i++) {
     });
   };
 }
+
+//QUESTION 4
 titleFour.textContent = questions[3].title;
 for (let i = 0; i < questions[3].options.length; i++) {
   const option = document.createElement("button");
@@ -220,7 +222,7 @@ function addDrinkHistory() {
 
   //Appends img to link text
   //Appends link text to html div
-  link.appendChild(img);
+  lastDrink.appendChild(img);
   lastDrink.appendChild(link);
 }
 const lastFoodRecipe = JSON.parse(localStorage.getItem("foodRecipe"));
@@ -240,7 +242,7 @@ function addFoodHistory() {
 
   //Appends img to link text
   //Appends link text to html div
-  link.appendChild(img);
+  lastFood.appendChild(img);
   lastFood.appendChild(link);
 }
 
