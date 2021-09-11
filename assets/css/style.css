@@ -1,19 +1,28 @@
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+@media only screen and (min-width: 1024px) {
+  main {
+    height: 88vh;
+  }
 }
 
 .is-brand-gold {
-    background-color: #FCBF49;
+  background-color: #fcbf49;
 }
 
 .is-brand-navy {
-    background-color:#003049;
+  background-color: #003049;
 }
 
 .is-brand-beige {
-    background-color: #EAE2B7;
+  background-color: #eae2b7;
 }
 
 .box {
-    background-color: #f8f6ec;
+  background-color: #f8f6ec;
+}
+
+.footer {
+  padding: 1.25rem;
 }

@@ -96,7 +96,7 @@ function getFood(requestURL) {
 titleOne.textContent = questions[0].title;
 for (let i = 0; i < questions[0].options.length; i++) {
   const option = document.createElement("button");
-  option.classList.add("optionOne", "button", "is-link");
+  option.classList.add("optionOne", "button", "is-link", "is-small");
   questionOne.appendChild(option);
   option.textContent = questions[0].options[i];
   option.onclick = function (event) {
@@ -124,7 +124,7 @@ for (let i = 0; i < questions[0].options.length; i++) {
 titleTwo.textContent = questions[1].title;
 for (let i = 0; i < questions[1].options.length; i++) {
   const option = document.createElement("button");
-  option.classList.add("optionTwo", "button", "is-link");
+  option.classList.add("optionTwo", "button", "is-link", "is-small");
   option.textContent = questions[1].options[i];
   questionTwo.appendChild(option);
   option.onclick = function (event) {
@@ -152,7 +152,7 @@ for (let i = 0; i < questions[1].options.length; i++) {
 titleThree.textContent = questions[2].title;
 for (let i = 0; i < questions[2].options.length; i++) {
   const option = document.createElement("button");
-  option.classList.add("optionThree", "button", "is-link");
+  option.classList.add("optionThree", "button", "is-link", "is-small");
   option.textContent = questions[2].options[i];
   questionThree.appendChild(option);
   option.onclick = function (event) {
@@ -180,7 +180,7 @@ for (let i = 0; i < questions[2].options.length; i++) {
 titleFour.textContent = questions[3].title;
 for (let i = 0; i < questions[3].options.length; i++) {
   const option = document.createElement("button");
-  option.classList.add("optionFour", "button", "is-link");
+  option.classList.add("optionFour", "button", "is-link", "is-small");
   option.textContent = questions[3].options[i];
   questionFour.appendChild(option);
   option.onclick = function (event) {
