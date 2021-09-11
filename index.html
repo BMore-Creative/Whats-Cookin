@@ -19,89 +19,102 @@
     />
   </head>
   <body class="is-brand-navy">
-    <header>
-      <nav class="navbar has-shadow is-brand-gold">
-        <div class="navbar-brand">
-          <figure class="image">
-            <img
-              src="./assets/img/Whats-Cookin Logo.png"
-              alt="What's cookin logo text with butcher's knife in top left corner"
-            />
-          </figure>
+    <div class="columns is-flex-direction-column is-fullheight-100vh">
+      <header class="column">
+        <nav class="navbar has-shadow is-brand-gold">
+          <div class="navbar-brand">
+            <figure class="image">
+              <img
+                src="./assets/img/Whats-Cookin Logo.png"
+                alt="What's cookin logo text with butcher's knife in top left corner"
+              />
+            </figure>
+          </div>
+        </nav>
+      </header>
+      <main class="is-brand-beige has-text-centered column">
+        <div class="columns">
+          <section class="column is-offset-1">
+            <div class="content is-small box mt-3">
+              <h3 id="title-1"></h3>
+              <div
+                class="is-flex is-justify-content-space-evenly pt-2"
+                id="question-1"
+              ></div>
+            </div>
+
+            <div class="content is-small box">
+              <h3 id="title-2"></h3>
+              <div
+                class="is-flex is-justify-content-space-evenly pt-2"
+                id="question-2"
+              ></div>
+            </div>
+
+            <div class="content is-small box">
+              <h3 id="title-3"></h3>
+              <div
+                class="is-flex is-justify-content-space-evenly pt-2"
+                id="question-3"
+              ></div>
+            </div>
+
+            <div class="content is-small box">
+              <h3 id="title-4"></h3>
+              <div
+                class="is-flex is-justify-content-space-evenly pt-2"
+                id="question-4"
+              ></div>
+            </div>
+            <div class="columns is-mobile">
+              <div class="column">
+                <button class="button is-danger" id="tryAgain">
+                  Reset Quiz
+                </button>
+              </div>
+              <div class="column">
+                <button class="button is-link" id="submit">
+                  Submit Answers!
+                </button>
+              </div>
+            </div>
+          </section>
+          <section class="column mt-5">
+            <div class="columns box is-mobile">
+              <!-- Food Recipe Result -->
+              <div class="column" id="foodBox">
+                <h4 class="title is-4">Current Meal:</h4>
+                <img
+                src="./assets/img/Question Mark.jpg"
+                alt="Large question mark in a white square"
+                id="placeholder-1"
+              />
+              </div>
+
+              <!-- Randomized Drink Result -->
+              <div class="column" id="drinkBox">
+                <h4 class="title is-4">Current Drink:</h4>
+                <img
+                src="./assets/img/Question Mark.jpg"
+                alt="Large question mark in a white square"
+                id="placeholder-2"
+              />
+              </div>
+            </div>
+            <div class="columns box mt-5 is-mobile mb-3">
+              <div class="column" id="lastFood">
+                <h4 class="title is-4">Last Meal:</h4>
+              </div>
+              <div class="column" id="lastDrink">
+                <h4 class="title is-4">Last Drink:</h4>
+              </div>
+            </div>
+          </section>
+          <div class="column is-1"></div>
         </div>
-      </nav>
-    </header>
-    <main class="container is-brand-beige has-text-centered">
-      <div class="columns">
-        <section class="column is-offset-1">
-          <div class="content is-small box mt-3">
-            <h3 id="title-1"></h3>
-            <div
-              class="is-flex is-justify-content-space-evenly pt-2"
-              id="question-1"
-            ></div>
-          </div>
-
-          <div class="content is-small box">
-            <h3 id="title-2"></h3>
-            <div
-              class="is-flex is-justify-content-space-evenly pt-2"
-              id="question-2"
-            ></div>
-          </div>
-
-          <div class="content is-small box">
-            <h3 id="title-3"></h3>
-            <div
-              class="is-flex is-justify-content-space-evenly pt-2"
-              id="question-3"
-            ></div>
-          </div>
-
-          <div class="content is-small box">
-            <h3 id="title-4"></h3>
-            <div
-              class="is-flex is-justify-content-space-evenly pt-2"
-              id="question-4"
-            ></div>
-          </div>
-          <div class="columns is-mobile">
-            <div class="column">
-              <button class="button is-danger" id="tryAgain">Reset Quiz</button>
-            </div>
-            <div class="column">
-              <button class="button is-link" id="submit">
-                Submit Answers!
-              </button>
-            </div>
-          </div>
-        </section>
-        <section class="column mt-5">
-          <div class="columns box is-mobile">
-            <!-- Food Recipe Result -->
-            <div class="column" id="foodBox">
-              <h4 class="title is-4">Current Meal:</h4>
-            </div>
-
-            <!-- Randomized Drink Result -->
-            <div class="column" id="drinkBox">
-              <h4 class="title is-4">Current Drink:</h4>
-            </div>
-          </div>
-          <div class="columns box mt-5 is-mobile">
-            <div class="column" id="lastFood">
-              <h4 class="title is-4">Last Meal:</h4>
-            </div>
-            <div class="column" id="lastDrink">
-              <h4 class="title is-4">Last Drink:</h4>
-            </div>
-          </div>
-        </section>
-        <div class="column is-1"></div>
-      </div>
-    </main>
-    <footer class="footer is-brand-gold"></footer>
-
+      </main>
+      <footer class="footer is-brand-gold column"></footer>
+    </div>
     <script src="assets/js/questions.js"></script>
     <script src="assets/js/results.js"></script>
     <script src="assets/js/logic.js"></script>

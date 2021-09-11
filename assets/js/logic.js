@@ -13,6 +13,8 @@ const lastDrink = document.querySelector("#lastDrink");
 const lastFood = document.querySelector("#lastFood");
 const errorBox = document.querySelector("#errorBox");
 const submitAnswers = document.querySelector("#submit");
+const quesMarkOne = document.querySelector("#placeholder-1");
+const quesMarkTwo = document.querySelector("#placeholder-2");
 const resetBtn = document.querySelector("#tryAgain");
 
 let score = 0;
@@ -27,10 +29,10 @@ function getDrink(requestURL) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       // Creates img and anchor elements
       const link = document.createElement("a");
       const img = document.createElement("img");
+      const text = document.createElement("p");
       const drinkID = data.drinks[0].idDrink;
       const drinkResult = "https://www.thecocktaildb.com/drink/" + drinkID;
       const drinkImg = data.drinks[0].strDrinkThumb;
@@ -39,20 +41,19 @@ function getDrink(requestURL) {
       //Sets img to thumbnail from API fetch
       img.src = drinkImg;
       //Sets link href and text
-      link.textContent = drinkName;
+      text.textContent = drinkName;
       link.href = drinkResult;
+      link.target = "_blank";
 
-      //Appends img to link text
-      //Appends link text to html div
-      drinkBox.appendChild(img);
       drinkBox.appendChild(link);
+      link.appendChild(img);
+      link.appendChild(text);
       //Saves most recent drink API information to localStorage
       const drinkRecipe = [];
       drinkRecipe[0] = drinkID;
       drinkRecipe[1] = drinkName;
       drinkRecipe[2] = drinkImg;
       localStorage.setItem("drinkRecipe", JSON.stringify(drinkRecipe));
-      console.log(localStorage);
     });
 }
 
@@ -63,10 +64,10 @@ function getFood(requestURL) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       // Creates img and anchor elements
       const link = document.createElement("a");
       const img = document.createElement("img");
+      const text = document.createElement("p");
       const foodID = data.meals[0].idMeal;
       const foodResult = "https://www.themealdb.com/meal/" + foodID;
       const foodImg = data.meals[0].strMealThumb;
@@ -75,20 +76,19 @@ function getFood(requestURL) {
       //Sets img to thumbnail from API fetch
       img.src = foodImg;
       //Sets link href and text
-      link.textContent = data.meals[0].strMeal;
+      text.textContent = foodName;
       link.href = foodResult;
+      link.target = "_blank";
 
-      //Appends img to link text
-      //Appends link text to html div
-      foodBox.appendChild(img);
       foodBox.appendChild(link);
+      link.appendChild(img);
+      link.appendChild(text);
 
       const foodRecipe = [];
       foodRecipe[0] = foodID;
       foodRecipe[1] = foodName;
       foodRecipe[2] = foodImg;
       localStorage.setItem("foodRecipe", JSON.stringify(foodRecipe));
-      console.log(localStorage);
     });
 }
 
@@ -209,6 +209,7 @@ const lastDrinkRecipe = JSON.parse(localStorage.getItem("drinkRecipe"));
 function addDrinkHistory() {
   const link = document.createElement("a");
   const img = document.createElement("img");
+  const text = document.createElement("p");
   const drinkID = lastDrinkRecipe[0];
   const drinkResult = "https://www.thecocktaildb.com/drink/" + drinkID;
   const drinkName = lastDrinkRecipe[1];
@@ -217,18 +218,19 @@ function addDrinkHistory() {
   // Sets img to thumbnail from API fetch
   img.src = drinkImg;
   // Sets link href and text
-  link.textContent = drinkName;
+  text.textContent = drinkName;
   link.href = drinkResult;
+  link.target = "_blank";
 
-  //Appends img to link text
-  //Appends link text to html div
-  lastDrink.appendChild(img);
   lastDrink.appendChild(link);
+  link.appendChild(img);
+  link.appendChild(text);
 }
 const lastFoodRecipe = JSON.parse(localStorage.getItem("foodRecipe"));
 function addFoodHistory() {
   const link = document.createElement("a");
   const img = document.createElement("img");
+  const text = document.createElement('p');
   const foodID = lastFoodRecipe[0];
   const foodResult = "https://www.themealdb.com/meal/" + foodID;
   const foodName = lastFoodRecipe[1];
@@ -237,13 +239,13 @@ function addFoodHistory() {
   //Sets img to thumbnail from API fetch
   img.src = foodImg;
   //Sets link href and text
-  link.textContent = foodName;
+  text.textContent = foodName;
   link.href = foodResult;
+  link.target = "_blank"
 
-  //Appends img to link text
-  //Appends link text to html div
-  lastFood.appendChild(img);
-  lastFood.appendChild(link);
+    lastFood.appendChild(link);
+  link.appendChild(img);
+  link.appendChild(text);
 }
 
 //USER INPUT -> RECIPE RESULT LOGIC
@@ -339,6 +341,9 @@ submitAnswers.onclick = function () {
       break;
   }
   getDrink(requestRandDrink);
+
+  quesMarkOne.setAttribute("class", "is-hidden");
+  quesMarkTwo.setAttribute("class", "is-hidden");
 };
 
 // Reload the page
